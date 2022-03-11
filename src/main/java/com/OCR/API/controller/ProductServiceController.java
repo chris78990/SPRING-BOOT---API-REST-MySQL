@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.OCR.API.model.Product;
 
 @RestController
+@RequestMapping("/products")	//Line added in order to use the 3 RestController in the same project.
 public class ProductServiceController {
    private static Map<String, Product> productRepo = new HashMap<>();
    static {
@@ -28,13 +29,21 @@ public class ProductServiceController {
       productRepo.put(almond.getId(), almond);
    }
    
-   @RequestMapping(value = "/products/{id}", method = RequestMethod.DELETE)
+   /*
+    * Delete one product
+    * DELETE - http://localhost:9000/products/3
+    */
+   @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
    public ResponseEntity<Object> delete(@PathVariable("id") String id) { 
       productRepo.remove(id);
       return new ResponseEntity<>("Product is deleted successsfully", HttpStatus.OK);
    }
    
-   @RequestMapping(value = "/products/{id}", method = RequestMethod.PUT)
+   /*
+    * Update one product
+    * PUT - http://localhost:9000/products/1
+    */
+   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
    public ResponseEntity<Object> updateProduct(@PathVariable("id") String id, @RequestBody Product product) { 
       productRepo.remove(id);
       product.setId(id);
@@ -42,13 +51,21 @@ public class ProductServiceController {
       return new ResponseEntity<>("Product is updated successsfully", HttpStatus.OK);
    }
    
-   @RequestMapping(value = "/products", method = RequestMethod.POST)
+   /*
+    * Add one product
+    * POST - http://localhost:9000/products
+    */
+   @RequestMapping(value = "", method = RequestMethod.POST)
    public ResponseEntity<Object> createProduct(@RequestBody Product product) {
       productRepo.put(product.getId(), product);
       return new ResponseEntity<>("Product is created successfully", HttpStatus.CREATED);
    }
    
-   @RequestMapping(value = "/products")
+   /*
+    * Read all products
+    * GET - http://localhost:9000/products
+    */
+   @RequestMapping(value = "")
    public ResponseEntity<Object> getProduct() {
       return new ResponseEntity<>(productRepo.values(), HttpStatus.OK);
    }

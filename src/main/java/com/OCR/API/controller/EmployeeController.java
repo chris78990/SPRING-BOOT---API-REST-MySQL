@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.OCR.API.model.Employee;
 import com.OCR.API.service.impl.EmployeeServiceImpl;
 
 @RestController
+@RequestMapping("/")			//Line added in order to use the 3 RestController in the same project.
 public class EmployeeController {
 
 	@Autowired
@@ -31,7 +33,7 @@ public class EmployeeController {
 
 	/*
 	 * Read an employee if he exists
-	 * GET - http://localhost:9000/employee/10
+	 * GET - http://localhost:9000/employee/1
 	 */
 	@GetMapping("/employee/{id}")
 	public Employee getEmployee(@PathVariable("id") final Long id) {
@@ -54,7 +56,7 @@ public class EmployeeController {
     
 	/*
 	 * Delete an employee
-	 * DELETE - http://localhost:9000/employee/10
+	 * DELETE - http://localhost:9000/employee/5
 	 */
 	@DeleteMapping("/employee/{id}")
 	public void deleteEmployee(@PathVariable("id") final Long id) {
@@ -63,7 +65,7 @@ public class EmployeeController {
 	
 	/*
 	 * Update an employee
-	 * PUT - http://localhost:9000/employee/4
+	 * PUT - http://localhost:9000/employee/1
 	 * Body JSON with 4 parameters: firstName, lastName, mail, password
 	 */
 	@PutMapping("/employee/{id}")
