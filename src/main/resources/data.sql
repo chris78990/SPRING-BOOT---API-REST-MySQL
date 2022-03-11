@@ -9,10 +9,8 @@ CREATE TABLE employees (
 );
  
 INSERT INTO employees (first_name, last_name, mail, password) VALUES
-  ('Laurent', 'GINA', 'laurentgina@mail.com', 'laurent'),
-  ('Sophie', 'FONCEK', 'sophiefoncek@mail.com', 'sophie'),
-  ('Agathe', 'FEELING', 'agathefeeling@mail.com', 'agathe');
-  
-
-  
+  ('Christophe', 'Gina', 'christophegina@mail.com', 'laurent'),
+  ('Sophie', 'Foncek', 'sophiefoncek@mail.com', 'sophie'),
+  ('Sophie', 'Bouvry', 'sophiebouvry@mail.com', 'sophie'),
+  ('Agathe', 'Feeling', 'agathefeeling@mail.com', 'agathe');  
  
