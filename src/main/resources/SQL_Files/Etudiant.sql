@@ -1,0 +1,37 @@
+DROP TABLE IF EXISTS STUDENT;
+DROP TABLE IF EXISTS EXAM;
+DROP TABLE IF EXISTS COURSE;
+
+CREATE TABLE STUDENT (
+	ID VARCHAR(250) PRIMARY KEY,
+	firstname VARCHAR(250),
+	lastname VARCHAR(250),
+	age INT
+);
+
+CREATE TABLE EXAM (
+	ID VARCHAR(250) PRIMARY KEY,
+	coef INT,
+	date_exam VARCHAR(250)
+);
+
+CREATE TABLE COURSE (
+	ID VARCHAR(250) PRIMARY KEY,
+	name VARCHAR(250)
+);
+
+INSERT INTO STUDENT (ID, firstname, lastname, age) VALUES 
+	('00001','Paul','Ducasse',157),
+	('00002','Luc','Skywalker',25),
+	('00003','Mark','Knopfler',72);
+
+INSERT INTO EXAM (ID, coef, date_exam) VALUES 
+	('00001',1,'01/02/2022'),
+	('00002',5,'06/03/2022'),
+	('00003',2,'12/01/2022');
+
+INSERT INTO COURSE (ID, name) VALUES 
+	('00001','Anglais'),
+	('00002','Mathématiques'),
+	('00003','Français');
+	
